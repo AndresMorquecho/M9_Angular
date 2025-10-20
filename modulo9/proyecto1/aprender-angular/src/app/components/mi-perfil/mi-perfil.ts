@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './mi-perfil.html',
   styleUrl: './mi-perfil.css'
 })
+
 export class MiPerfil {
+
+  constructor() {
+    console.log("Se cargo el componente de perfil");
+    alert("Bienvenido a mi perfil");
+  }
+
 
 }
