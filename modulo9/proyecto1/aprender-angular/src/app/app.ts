@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MiPerfil } from "./components/mi-perfil/mi-perfil";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [MiPerfil],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
