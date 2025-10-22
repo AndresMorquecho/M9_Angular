@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-
+import { Cuenta } from '../cuenta/cuenta';
+import { Prestamos } from '../prestamos/prestamos';
+import { Transacciones } from '../transacciones/transacciones';
 @Component({
   selector: 'app-mi-perfil',
-  imports: [],
+  imports: [Cuenta, Prestamos, Transacciones],
   templateUrl: './mi-perfil.html',
   styleUrl: './mi-perfil.css'
 })
@@ -22,8 +24,17 @@ export class MiPerfil {
     this.address = "Calle Falsa 123";
     this.phone = "120938109238"
     this.profession = "Desarrollador de Software";
-    console.log("Se cargo el componente de perfil");
   }
 
+  ngDoCheck() {
+    console.log("Componente Actualizado");
+  }
+
+  cambiarEdad() {
+    this.age = 27;
+  }
+  cambiarDireccion() {
+    this.address = "Avenida Siempre Viva 742";
+  }
 
 }
