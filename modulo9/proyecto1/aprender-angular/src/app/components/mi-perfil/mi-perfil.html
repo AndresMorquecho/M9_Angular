@@ -16,8 +16,14 @@
     <button (click)="cambiarDireccion()" type="button" class="btn btn-primary">Cambiar Direccion</button>
 </div>
 
-<div>
-    <app-cuenta></app-cuenta>
-    <app-prestamos></app-prestamos>
-    <app-transacciones></app-transacciones>
-</div>
+
+<br>
+<button (click)="cambiarMostrarCuenta(true)" type="button" class="btn btn-primary">Mostrar componente cuenta</button>
+<br>
+
+<br>
+<button (click)="cambiarMostrarCuenta(false)" type="button" class="btn btn-primary">Ocultar componente cuenta</button>
+
+@if(mostrarCuenta){
+<app-cuenta></app-cuenta>
+}

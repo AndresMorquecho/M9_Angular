@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class Cuenta {
 
+
+
+
+  ngOnInit() {
+    console.log("Componente Cargado")
+  }
+
+  ngOnDestroy() {
+    console.log("Componente Destruido")
+  }
+
 }
+

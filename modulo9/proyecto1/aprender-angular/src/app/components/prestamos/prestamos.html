@@ -1,1 +1,11 @@
-<p>prestamos works!</p>
+<a [class.existe]="redirigir" [href]="web" target="_blank" class="btn btn-primary">Spotify</a>
+<br><br>
+<button (click)="cambiarEstado()" >Cambiar estado</button>
+
+@if(redirigir){
+
+<p>¡El enlace funciona correctamente!</p>
+}@else {
+
+<p>Lo sentimos, este enlace no está disponible :(</p>
+}
