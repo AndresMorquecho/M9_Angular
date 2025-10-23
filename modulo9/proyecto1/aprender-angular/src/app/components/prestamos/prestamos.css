@@ -1,11 +1,10 @@
-a {
-    background-color: orange;
-    color: black;
-    padding: 15px;
+.Pendiente{
+   color: red;
+   font-weight: bold;
 }
 
-a.existe{
-    background-color: green;
-    font-size: 30px;
-    border-radius: 20px;
+.Aprobado {
+  color: green;
+  font-weight: bold;
 }
+

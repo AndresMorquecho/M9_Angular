@@ -1,3 +1,4 @@
+<!--
 <a [class.existe]="redirigir" [href]="web" target="_blank" class="btn btn-primary">Spotify</a>
 <br><br>
 <button (click)="cambiarEstado()" >Cambiar estado</button>
@@ -7,5 +8,41 @@
 <p>¡El enlace funciona correctamente!</p>
 }@else {
 
-<p>Lo sentimos, este enlace no está disponible :(</p>
-}
+<p>Lo sentimos, este enlace no está disponible </p>
+}-->
+<div class="container">
+    <div class="list-group">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Monto
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for(prestamo of prestamosList;track prestamo.id){
+                <tr>
+                    <td>
+                        {{prestamo.id}}
+                    </td>
+                    <td>
+                        {{prestamo.monto }}
+                    </td>
+                    <td [class.Pendiente]="prestamo.estado === 'Pendiente'"
+                        [class.Aprobado]="prestamo.estado === 'Aprobado'">
+                        {{prestamo.estado }}
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
