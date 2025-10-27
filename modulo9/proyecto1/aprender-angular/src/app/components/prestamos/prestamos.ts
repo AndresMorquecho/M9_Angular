@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { MiPerfil } from '../mi-perfil/mi-perfil';
+import {CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-prestamos',
-  imports: [],
+  imports: [ CurrencyPipe, LowerCasePipe, UpperCasePipe, DatePipe  ],
   templateUrl: './prestamos.html',
   styleUrl: './prestamos.css'
 })
@@ -11,12 +13,12 @@ export class Prestamos {
   public web = "https://open.spotify.com/intl-es/";
   public redirigir = true;
   public prestamosList = [
-    { id: 1, monto: 200, estado: 'Aprobado' },
-    { id: 2, monto: 400, estado: 'Aprobado' },
-    { id: 3, monto: 200, estado: 'Pendiente' },
-    { id: 4, monto: 100, estado: 'Pendiente' },
-    { id: 5, monto: 700, estado: 'Pendiente' },
-    { id: 6, monto: 800, estado: 'Aprobado' },
+    { fecha: "2025-1-2", id: 1, monto: 200, estado: 'Aprobado' },
+    { fecha: "2025-1-2", id: 2, monto: 400, estado: 'Aprobado' },
+    { fecha: "2025-1-2", id: 3, monto: 200, estado: 'Pendiente' },
+    { fecha: "2025-1-2", id: 4, monto: 100, estado: 'Pendiente' },
+    { fecha: "2025-1-2", id: 5, monto: 700, estado: 'Pendiente' },
+    { fecha: "2025-1-2", id: 6, monto: 800, estado: 'Aprobado' },
   ];
 
   public prestamo = { id: 1, tipo: 'Hipotecario', interes: 10 };

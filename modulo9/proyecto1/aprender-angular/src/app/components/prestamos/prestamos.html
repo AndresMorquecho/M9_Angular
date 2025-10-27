@@ -10,6 +10,7 @@
 
 <p>Lo sentimos, este enlace no está disponible </p>
 }-->
+<!-- 
 <div class="container">
     <div class="list-group">
         <table>
@@ -58,8 +59,27 @@
         <p>El préstamo es de tipo Vehicular</p>
         }
         @default{
-            <p>Tipo de préstamo no reconocido</p>
+        <p>Tipo de préstamo no reconocido</p>
         }
         }
     </div>
 </div>
+<ng-container>
+    <h3>Más cosas de las plantillas de angular</h3>
+</ng-container>
+
+@defer () {
+
+<app-mi-perfil></app-mi-perfil>
+} @placeholder {
+    <p>se esta cargando el componente de perfil</p>
+}
+
+-->
+{{prestamo.tipo | uppercase}}
+<br>
+{{prestamo.tipo | lowercase}}
+<br>
+{{prestamosList[1].monto| currency}}
+<br>
+{{prestamosList[1].fecha| date:'fullDate'}}
