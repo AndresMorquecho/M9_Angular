@@ -45,4 +45,21 @@
             </tbody>
         </table>
     </div>
+    <br>
+    <div>
+        @switch (prestamo.tipo) {
+        @case ("Personal") {
+        <p>El préstamo es de tipo Personal</p>
+        }
+        @case ("Hipotecario") {
+        <p>El préstamo es de tipo Hipotecario</p>
+        }
+        @case ("Vehicular") {
+        <p>El préstamo es de tipo Vehicular</p>
+        }
+        @default{
+            <p>Tipo de préstamo no reconocido</p>
+        }
+        }
+    </div>
 </div>

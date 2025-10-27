@@ -11,14 +11,15 @@ export class Prestamos {
   public web = "https://open.spotify.com/intl-es/";
   public redirigir = true;
   public prestamosList = [
-    { id:1, monto: 200, estado: 'Aprobado'},
-    { id:2, monto: 400, estado: 'Aprobado'},
-    { id:3, monto: 200, estado: 'Pendiente'},
-    { id:4, monto: 100, estado: 'Pendiente'},
-    { id:5, monto: 700, estado: 'Pendiente'},
-    { id:6, monto: 800, estado: 'Aprobado'},
+    { id: 1, monto: 200, estado: 'Aprobado' },
+    { id: 2, monto: 400, estado: 'Aprobado' },
+    { id: 3, monto: 200, estado: 'Pendiente' },
+    { id: 4, monto: 100, estado: 'Pendiente' },
+    { id: 5, monto: 700, estado: 'Pendiente' },
+    { id: 6, monto: 800, estado: 'Aprobado' },
   ];
 
+  public prestamo = { id: 1, tipo: 'Hipotecario', interes: 10 };
 
   cambiarEstado() {
     if (this.redirigir) {
