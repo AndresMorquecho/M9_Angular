@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { MiPerfil } from '../mi-perfil/mi-perfil';
 import {CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
+import { cambiarLetrasPipe } from '../../pipes/cambiarLetras';
+import { codigoAscciPipe } from '../../pipes/codigoAscii';
+
 
 @Component({
   selector: 'app-prestamos',
-  imports: [ CurrencyPipe, LowerCasePipe, UpperCasePipe, DatePipe  ],
+  imports: [ codigoAscciPipe, cambiarLetrasPipe,CurrencyPipe, LowerCasePipe, UpperCasePipe, DatePipe  ],
   templateUrl: './prestamos.html',
   styleUrl: './prestamos.css'
 })
