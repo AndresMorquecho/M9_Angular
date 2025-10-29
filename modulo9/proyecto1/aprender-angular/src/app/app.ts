@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { Prestamos } from "./components/prestamos/prestamos";
+import { Transacciones } from './components/transacciones/transacciones';
 
 @Component({
   selector: 'app-root',
-  imports: [Prestamos],
+  imports: [Transacciones],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,1 +1,11 @@
-<p>transacciones works!</p>
+<div class="card mb-3" [ngClass]="disponible === true ? 'text-bg-danger' : 'text-bg-primary'" style="max-width: 18rem;" >
+  <div class="card-header">{{ disponible }}</div>
+  <div class="card-body">
+    <h5 class="card-title">Hola</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of the card’s content.
+    </p>
+  </div>
+</div>
+
+<button class="btn btn-primary" (click)="disponible = !disponible">Cambiar Estado</button>
