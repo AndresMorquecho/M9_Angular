@@ -1,4 +1,4 @@
-<div class="card mb-3" [ngClass]="disponible === true ? 'text-bg-danger' : 'text-bg-primary'" style="max-width: 18rem;" >
+<div class="card mb-3" [ngClass]="disponible === true ? 'text-bg-danger' : 'text-bg-primary'" style="max-width: 18rem;">
   <div class="card-header">{{ disponible }}</div>
   <div class="card-body">
     <h5 class="card-title">Hola</h5>
@@ -9,3 +9,5 @@
 </div>
 
 <button class="btn btn-primary" (click)="disponible = !disponible">Cambiar Estado</button>
+<h2 [ngStyle]="disponible === true ? {'backgroundColor': 'green'}:{'backgroundColor': 'red'}">Hola mi nombre es
+  andres</h2>

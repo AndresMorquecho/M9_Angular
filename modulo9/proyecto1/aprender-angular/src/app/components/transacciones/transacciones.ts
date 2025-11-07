@@ -1,9 +1,9 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-transacciones',
-  imports: [NgClass],
+  imports: [NgClass, NgStyle],
   templateUrl: './transacciones.html',
   styleUrl: './transacciones.css'
 })
