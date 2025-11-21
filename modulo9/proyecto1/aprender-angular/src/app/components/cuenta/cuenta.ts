@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
-
+import { Transacciones } from '../transacciones/transacciones';
+import { cliente } from '../../models/Cliente';
 @Component({
   selector: 'app-cuenta',
-  imports: [],
+  imports: [Transacciones],
   templateUrl: './cuenta.html',
   styleUrl: './cuenta.css'
 })
 export class Cuenta {
 
+  cliente: cliente;
 
-
-
-  ngOnInit() {
-    console.log("Componente Cargado")
-  }
-
-  ngOnDestroy() {
-    console.log("Componente Destruido")
+  constructor() {
+    this.cliente = new cliente(1, "Andres", "Morquecho", "andres@hotmail.com", 800)
   }
 
 }

@@ -1,13 +1,15 @@
-<div class="card mb-3" [ngClass]="disponible === true ? 'text-bg-danger' : 'text-bg-primary'" style="max-width: 18rem;">
-  <div class="card-header">{{ disponible }}</div>
-  <div class="card-body">
-    <h5 class="card-title">Hola</h5>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of the card’s content.
-    </p>
-  </div>
-</div>
+<h1>Transacciones</h1>
+<hr>
 
-<button class="btn btn-primary" (click)="disponible = !disponible">Cambiar Estado</button>
-<h2 [ngStyle]="disponible === true ? {'backgroundColor': 'green'}:{'backgroundColor': 'red'}">Hola mi nombre es
-  andres</h2>
+<ol>
+
+  @for (transaccion of transacciones; track transaccion.id) {
+  <li>
+    {{transaccion.fecha |date:'EEEE, dd \'de\' MMMM \'de\' yyyy'}} - {{transaccion.descripcion}} - {{transaccion.monto}}
+    -
+    <span [ngClass]="transaccion.tipo === 'Ingreso' ? 'verde' : 'rojo'">{{transaccion.tipo}}</span>
+
+  </li>
+  }
+
+</ol>
