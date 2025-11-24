@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Pelicula } from '../../models/pelicula';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-cine',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './cine.html',
   styleUrl: './cine.css'
 })
@@ -11,6 +12,13 @@ export class Cine {
   public titulo: string;
 
   public peliculas: Array<Pelicula>;
+  public peliculasSinDatos: string[] = [];
+
+  // Para trabajar con formularios y binding bidireccional
+
+  public miPelicula: string = "";
+
+
 
   constructor() {
     this.titulo = "Modelos"
@@ -29,6 +37,16 @@ export class Cine {
     console.log(this.peliculas);
 
     this.peliculas[1].titulo = "The Matrix Reloaded";
+  }
+
+  showPelicula() {
+    alert(this.miPelicula)
+  }
+
+  addPelicula() {
+    let nuevaPelicula = new Pelicula(this.peliculas.length + 1, this.miPelicula);
+    console.log(nuevaPelicula);
+    this.peliculas.push(nuevaPelicula);
   }
 
 }

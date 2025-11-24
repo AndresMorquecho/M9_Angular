@@ -6,3 +6,23 @@
     <li>{{pelicula.titulo}} - {{pelicula.genero}} - {{pelicula.plataforma}}</li>
     }
 </ol>
+
+<h1>Formulario y two date binding</h1>
+
+<input type="text" [(ngModel)]="miPelicula" />
+
+
+<button (click)="showPelicula()">Mostrar pelicula</button>
+<button (click)="addPelicula()">Añadir nueva pelicula</button>
+
+<p>
+    mi pelicula es: <strong>{{miPelicula}}</strong>
+</p>
+
+<h2>Lista de peliculas simples:</h2>
+
+<ol>
+    @for (pelicula of peliculasSinDatos; track pelicula) {
+    <li>{{pelicula}}</li>
+    }
+</ol>

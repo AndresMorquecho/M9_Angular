@@ -7,7 +7,7 @@ import { codigoAscciPipe } from '../../pipes/codigoAscii';
 
 @Component({
   selector: 'app-prestamos',
-  imports: [ codigoAscciPipe, cambiarLetrasPipe,CurrencyPipe, LowerCasePipe, UpperCasePipe, DatePipe  ],
+  imports: [ codigoAscciPipe,CurrencyPipe, LowerCasePipe, UpperCasePipe, DatePipe  ],
   templateUrl: './prestamos.html',
   styleUrl: './prestamos.css'
 })

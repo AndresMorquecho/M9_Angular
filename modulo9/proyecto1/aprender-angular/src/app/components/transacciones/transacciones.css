@@ -7,3 +7,7 @@
     color: red;
     font-weight: bold;
 }
+
+.form-floating label {
+  width: 200px;      /* Ajusta según lo que necesites */
+}
