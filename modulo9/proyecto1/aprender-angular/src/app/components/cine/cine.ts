@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { Pelicula } from '../../models/pelicula';
 import { FormsModule } from '@angular/forms';
+import { NgStyle } from '@angular/common';
 @Component({
   selector: 'app-cine',
-  imports: [FormsModule],
+  imports: [FormsModule, NgStyle],
   templateUrl: './cine.html',
   styleUrl: './cine.css'
 })
 export class Cine {
 
   public titulo: string;
+  public color: string= "#FFFFFF";
 
   public peliculas: Array<Pelicula>;
   public peliculasSinDatos: string[] = [];
@@ -49,4 +51,18 @@ export class Cine {
     this.peliculas.push(nuevaPelicula);
   }
 
+  borrarPelicula(indice: number){
+    this.peliculas.splice(indice, 1);
+  }
+
+  haciendoFoco(){
+    console.log("haciendo foco dentro del input")
+  }
+  SaliendoFoco(){
+    console.log("haciendo FUERA foco dentro del input")
+  }
+
+  pulsandoTeclas(event: KeyboardEvent){
+    console.log("pulsando teclas dentro del input: " + event.key);
+  }
 }

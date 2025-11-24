@@ -6,7 +6,7 @@ import { Cine } from './components/cine/cine';
 import { Cuenta } from './components/cuenta/cuenta';
 @Component({
   selector: 'app-root',
-  imports: [ Transacciones],
+  imports: [ Prestamos],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

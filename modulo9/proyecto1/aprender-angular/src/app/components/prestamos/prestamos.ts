@@ -1,20 +1,26 @@
 import { Component } from '@angular/core';
 import { MiPerfil } from '../mi-perfil/mi-perfil';
-import {CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { cambiarLetrasPipe } from '../../pipes/cambiarLetras';
 import { codigoAscciPipe } from '../../pipes/codigoAscii';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-prestamos',
-  imports: [ codigoAscciPipe,CurrencyPipe, LowerCasePipe, UpperCasePipe, DatePipe  ],
+  imports: [CurrencyPipe, DatePipe, FormsModule],
   templateUrl: './prestamos.html',
   styleUrl: './prestamos.css'
 })
 export class Prestamos {
 
+  public fecha: string = ""
+  public monto: number = 0;
+  public estado: string = "";
+
   public web = "https://open.spotify.com/intl-es/";
   public redirigir = true;
+  public prestamoSeleccionado: any = null;
   public prestamosList = [
     { fecha: "2025-1-2", id: 1, monto: 200, estado: 'Aprobado' },
     { fecha: "2025-1-2", id: 2, monto: 400, estado: 'Aprobado' },
@@ -34,6 +40,22 @@ export class Prestamos {
       this.redirigir = true;
       this.web = "https://open.spotify.com/intl-es/";
     }
+  }
+
+  deletePrestamo(id: number) {
+    this.prestamosList.splice(id - 1, 1)
+  }
+
+  addprestamo() {
+    let NuevoPrestamo = {
+      fecha: this.fecha,
+      id: this.prestamosList.length + 1,
+      monto: this.monto,
+      estado: this.estado
+    }
+
+    this.prestamosList.push(NuevoPrestamo);
+
   }
 
 }

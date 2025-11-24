@@ -1,88 +1,92 @@
-<!--
-<a [class.existe]="redirigir" [href]="web" target="_blank" class="btn btn-primary">Spotify</a>
-<br><br>
-<button (click)="cambiarEstado()" >Cambiar estado</button>
+<div>
 
-@if(redirigir){
+    <table class="table w-50">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Fecha
+                </th>
+                <th>
+                    Monto
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
 
-<p>¡El enlace funciona correctamente!</p>
-}@else {
+        </thead>
+        <tbody>
+            @for (prestamoData of prestamosList; track prestamoData.id; let indice = $index) {
+            <tr>
+                <td>
+                    {{prestamoData.id}}
+                </td>
+                <td>
+                    {{prestamoData.fecha | date:'dd/MM/yyyy'}}
+                </td>
+                <td>
+                    {{prestamoData.monto | currency:'USD'}}
+                </td>
+                <td>
+                    {{prestamoData.estado}}
+                </td>
+                <td>
 
-<p>Lo sentimos, este enlace no está disponible </p>
-}-->
-<!-- 
-<div class="container">
-    <div class="list-group">
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Monto
-                    </th>
-                    <th>
-                        Estado
-                    </th>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        (click)="prestamoSeleccionado= prestamoData">
+                        X
+                    </button>
+                </td>
+            </tr>
+            }
 
-                </tr>
-            </thead>
-            <tbody>
-                @for(prestamo of prestamosList;track prestamo.id){
-                <tr>
-                    <td>
-                        {{prestamo.id}}
-                    </td>
-                    <td>
-                        {{prestamo.monto }}
-                    </td>
-                    <td [class.Pendiente]="prestamo.estado === 'Pendiente'"
-                        [class.Aprobado]="prestamo.estado === 'Aprobado'">
-                        {{prestamo.estado }}
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    <br>
-    <div>
-        @switch (prestamo.tipo) {
-        @case ("Personal") {
-        <p>El préstamo es de tipo Personal</p>
-        }
-        @case ("Hipotecario") {
-        <p>El préstamo es de tipo Hipotecario</p>
-        }
-        @case ("Vehicular") {
-        <p>El préstamo es de tipo Vehicular</p>
-        }
-        @default{
-        <p>Tipo de préstamo no reconocido</p>
-        }
-        }
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Esta seguro de eliminar el registro seleccionado
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    data-bs-dismiss="modal">
+                    ></button>
+            </div>
+            <div class="modal-body">
+                ID: {{prestamoSeleccionado?.id}}
+                Fecha: {{prestamoSeleccionado?.fecha | date:'dd/MM/yyyy'}}
+                Monto:{{prestamoSeleccionado?.monto | currency:'USD'}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary">Cancelar</button> <button type="button"
+                    class="btn btn-danger" (click)="deletePrestamo(prestamoSeleccionado.id)" data-bs-dismiss="modal">
+                    Confirmar</button>
+            </div>
+        </div>
     </div>
 </div>
-<ng-container>
-    <h3>Más cosas de las plantillas de angular</h3>
-</ng-container>
+<div class="form-floating mb-3 w-50">
+    <input [(ngModel)]="fecha" type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Fecha</label>
+</div>
+<div class="form-floating mb-3 w-50">
+    <input [(ngModel)]="monto" type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Monto</label>
+</div>
+<div class="form-floating mb-3 w-50">
+    <input [(ngModel)]="estado" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Estado</label>
+</div>
 
-@defer () {
-
-<app-mi-perfil></app-mi-perfil>
-} @placeholder {
-    <p>se esta cargando el componente de perfil</p>
-}
-
--->
-{{prestamo.tipo | uppercase}}
-<br>
-{{prestamo.tipo | lowercase}}
-<br>
-{{prestamosList[1].monto| currency}}
-<br>
-{{prestamosList[1].fecha| date:'fullDate'}}
-<br>
-
-{{"Prueba texto to Ascci" | codigoAscii}}
+<button type="button" class="btn btn-primary" (click)="addprestamo()">Agregar</button>

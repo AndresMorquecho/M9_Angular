@@ -1,15 +1,29 @@
 <hr />
 <h1>{{titulo}}</h1>
 
+<p>
+    Elige un Color:
+    <input type="color" [(ngModel)]="color" />
+</p>
+
+
 <ol>
-    @for (pelicula of peliculas; track pelicula.id) {
-    <li>{{pelicula.titulo}} - {{pelicula.genero}} - {{pelicula.plataforma}}</li>
+    @for (pelicula of peliculas; track pelicula.id; let indice = $index) {
+    <li>{{pelicula.titulo}} - {{pelicula.genero}} -
+
+        <span [ngStyle]="{'background-color': color}">{{pelicula.plataforma}}</span>
+
+        <button (click)="borrarPelicula(indice)"  >Eliminar</button>
+    </li>
     }
 </ol>
 
 <h1>Formulario y two date binding</h1>
 
-<input type="text" [(ngModel)]="miPelicula" />
+<input type="text" [(ngModel)]="miPelicula" (focus)="haciendoFoco()" 
+ (blur)="SaliendoFoco()"
+ (keyup)="pulsandoTeclas($event)"
+/>
 
 
 <button (click)="showPelicula()">Mostrar pelicula</button>
