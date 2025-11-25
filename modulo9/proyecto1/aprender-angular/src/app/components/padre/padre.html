@@ -1,0 +1,10 @@
+<hr>
+
+<h2>Soy el componente padre</h2>
+
+<p>Presento a mi hijo</p>
+<hr>
+<app-hijo [NombrePapa]="nombrePadre" (saludoHijo)="recibirSaludo($event)"></app-hijo>
+<hr>
+
+{{saludoRecibido}}

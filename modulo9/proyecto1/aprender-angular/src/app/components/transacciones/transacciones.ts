@@ -1,11 +1,11 @@
 import { NgClass, NgFor, NgStyle } from '@angular/common';
-import { Component, Pipe } from '@angular/core';
+import { Component, EventEmitter, Output, Pipe } from '@angular/core';
 import { transacciones } from "../../models/transaccion";
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-transacciones',
-  imports: [NgClass, DatePipe, FormsModule],
+  imports: [ FormsModule],
   templateUrl: './transacciones.html',
   styleUrl: './transacciones.css',
 
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class Transacciones {
   transacciones: Array<transacciones>;
   descripcionTransaccion: string = "";
+  @Output() mensajeEnviado = new EventEmitter();
 
   constructor() {
     this.transacciones = [
@@ -23,12 +24,7 @@ export class Transacciones {
       new transacciones(5, new Date("10/10/2025"), "Compra en tienda", 150, "Egreso"),
     ]
   }
-
-  showTransaccion(){
-    alert(this.descripcionTransaccion);
-  }
-
-  ngDoCheck(){
-    console.log(this.descripcionTransaccion);
-  }
+  enviarSaludo(){
+    this.mensajeEnviado.emit("Hola desde transacciones!!")
+}
 }

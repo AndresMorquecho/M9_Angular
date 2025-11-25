@@ -4,12 +4,16 @@ import { Prestamos } from '../prestamos/prestamos';
 import { Transacciones } from '../transacciones/transacciones';
 @Component({
   selector: 'app-mi-perfil',
-  imports: [Cuenta,],
+  imports: [Cuenta, Transacciones],
   templateUrl: './mi-perfil.html',
   styleUrl: './mi-perfil.css'
 })
 
 export class MiPerfil {
+
+  nombrecliente: string = "Juan Pérez";
+  mensajeRecibido: string= "";
+
 
   public name: string;
   public age: number;
@@ -17,6 +21,7 @@ export class MiPerfil {
   public phone: string;
   public profession: string;
   public mostrarCuenta: boolean = true;
+
 
   constructor() {
     this.name = "Andres Israel";
@@ -26,6 +31,10 @@ export class MiPerfil {
     this.profession = "Desarrollador de Software";
   }
 
+  recibirMensaje(event: string){
+    this.mensajeRecibido = event;
+    alert("Mensaje recibido: " + this.mensajeRecibido)
+  }
   ngDoCheck() {
     console.log("Componente Actualizado");
   }
